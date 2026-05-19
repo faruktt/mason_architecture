@@ -1,6 +1,6 @@
 # BIG Architecture — Laravel 11 Full Stack Project
 
-A full-stack Laravel 11 website inspired by **big.dk** (Bjarke Ingels Group), featuring a premium Bootstrap 5 frontend and a complete admin panel.
+A full-stack Laravel 11 website inspired by **Mason** , featuring a premium Bootstrap 5 frontend and a complete admin panel.
 
 ---
 
