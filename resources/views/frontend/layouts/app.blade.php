@@ -38,11 +38,11 @@
                         <li>
                             <a class="text-red-700">Project</a>
                             <ul class="p-2">
-                                <li><a class="text-red-700" href="{{ route('projects.index') }}">Master Plan</a></li>
-                                <li><a href="{{ route('projects.index') }}">Architecture</a></li>
-                                <li><a href="{{ route('projects.index') }}">Landscape</a></li>
-                                <li><a href="{{ route('projects.index') }}">Interior</a></li>
-                                <li><a href="{{ route('projects.index') }}">Construction</a></li>
+                                <li><a href="{{ route('projects.index', ['cat'=>'Architecture']) }}" class="{{ request()->routeIs('projects*') && request('cat')=='Architecture' ? 'active' : '' }}">Architecture</a></li>
+        <li><a href="{{ route('projects.index', ['cat'=>'Interiors']) }}" class="{{ request('cat')=='Interiors' ? 'active' : '' }}">Interiors</a></li>
+        <li><a href="{{ route('projects.index', ['cat'=>'Landscape']) }}" class="{{ request('cat')=='Landscape' ? 'active' : '' }}">Landscape</a></li>
+        <li><a href="{{ route('projects.index', ['cat'=>'Planning']) }}" class="{{ request('cat')=='Planning' ? 'active' : '' }}">Planning</a></li>
+        <li><a href="{{ route('projects.index', ['cat'=>'Products']) }}" class="{{ request('cat')=='Products' ? 'active' : '' }}">Products</a></li>
                             </ul>
                         </li>
                         <li><a href="studio.html">Studio</a></li>
@@ -56,18 +56,7 @@
             <div class="navbar-end hidden lg:flex">
                 <ul class="menu menu-horizontal px-1 text-lg">
                     <li><a href="{{ route('news.index') }}">News</a></li>
-                    <li>
-                        <details>
-                            <summary class="text-red-700">Project</summary>
-                            <ul class="p-2">
-                                <li><a class="text-red-700" href="{{ route('projects.index') }}">Master Plan</a></li>
-                                <li><a href="{{ route('projects.index') }}">Architecture</a></li>
-                                <li><a href="{{ route('projects.index') }}">Landscape</a></li>
-                                <li><a href="{{ route('projects.index') }}">Interior</a></li>
-                                <li><a href="{{ route('projects.index') }}">Construction</a></li>
-                            </ul>
-                        </details>
-                    </li>
+                    <li><a href="{{ route('projects.index') }}">Project</a></li>        
                     <li><a href="studio.html">Studio</a></li>
                     <li><a href="{{ route('people') }}">Team</a></li>
                     <li><a href="{{ route('about') }}">Contact</a></li>

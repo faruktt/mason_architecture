@@ -1,62 +1,101 @@
-<?php $__env->startSection('title', 'About — BIG'); ?>
+
+<?php $__env->startSection('title', 'About | Bjarke Ingels Group'); ?>
 
 <?php $__env->startSection('content'); ?>
+<style> .about-text-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            padding: 0 60px 60px;
+            border-bottom: 1px solid #e8e8e8;
+        }
 
-<div class="page-header">
-    <div class="container">
-        <div class="section-label" style="color:var(--accent);">Who We Are</div>
-        <h1>About BIG</h1>
+        .about-text-col {
+            padding-right: 40px;
+        }
+
+        .about-text-col:last-child { padding-right: 0; }
+
+        .about-text-col p {
+            font-size: 13px;
+            line-height: 1.65;
+            color: #000;
+            margin-bottom: 16px;
+        }
+
+        .about-text-col .author {
+            font-size: 12px;
+            color: #000;
+            margin-top: 20px;
+            line-height: 1.5;
+        }
+
+        .about-image-strip {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .about-image-strip .strip-item {
+            background: #e0e0e0;
+            border-right: 1px solid #fff;
+            overflow: hidden;
+        }
+
+        .about-image-strip .strip-item:last-child { border-right: none; }
+
+        .about-image-strip .strip-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+         /* ===== BIG PAGE HEADINGS (About, Sustainability, People, Careers) ===== */
+        .page-big-heading {
+            padding: 60px 60px 48px;
+        }
+
+        .page-big-heading h1 {
+            font-size: clamp(64px, 10vw, 120px);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 0.95;
+            color: #000;
+            text-transform: uppercase;
+        }</style>
+<div class="page-big-heading">
+    <h1>About</h1>
+</div>
+
+<div class="about-text-cols">
+    <div class="about-text-col">
+        <p>The escalating complexity of the world and the accelerating speed of change exceed any individual's capacity to comprehend. For architects operating today, the Golden Ratio is no longer the standard — rather, the UN's 17 Sustainable Development Goals are. From a single elegant equation, architects are now held to multidimensional success criteria with almost infinite variables.</p>
+        <p>Since sustainability is inherently a question of complex systems, circular design, and holistic thinking, no single person holds the solution. As architects and urbanists, we must team with scientists, engineers with biologists, politicians with entrepreneurs, to combine skill sets and perspectives, knowledge and sensibility, to match the complexity of the challenges we face. As future formgivers, we aren't defined by our individual talents or singular skill sets — but rather by our capacity to pool the skills of the many to give our future form.</p>
+    </div>
+    <div class="about-text-col">
+        <p>BIG has grown organically over the last two decades from a founder, to a family, to a force of 700. Our latest transformation is the BIG LEAP: Bjarke Ingels Group of Landscape, Engineering, Architecture, Planning, and Products. A plethora of in-house perspectives allows us to see what none of us would be able to see on our own. The sum of our individual talents becomes our collective creative genius. A small step for each of us becomes a BIG LEAP for all of us.</p>
+        <div class="author">
+            Bjarke Ingels<br>
+            Founder &amp; Creative Director
+        </div>
     </div>
 </div>
 
-<section class="section">
-    <div class="container">
-        <div class="row g-5 align-items-center">
-            <div class="col-lg-6">
-                <div class="section-label">Our Story</div>
-                <h2 class="section-title">Architecture is the art and science of making sure cities function and fulfill the human desires.</h2>
-                <p style="font-size:16px;color:#555;line-height:1.8;margin-bottom:20px;">
-                    Founded in 2005 by Bjarke Ingels in Copenhagen, BIG has grown from a small practice to a global architecture firm with over 800 team members across offices in Copenhagen, New York, London, Barcelona, and Los Angeles.
-                </p>
-                <p style="font-size:16px;color:#555;line-height:1.8;">
-                    BIG's architecture emerges out of a careful analysis of how contemporary life constantly evolves and changes. We believe architecture must be like a good pair of jeans — it must fit the time it lives in.
-                </p>
-            </div>
-            <div class="col-lg-6">
-                <div style="background:#0a0a0a;border-radius:16px;padding:36px;color:#fff;">
-                    <div style="font-size:48px;font-weight:900;color:var(--accent);letter-spacing:-2px;line-height:1;">BIG<br>LEAP</div>
-                    <p style="font-size:14px;color:#555;margin-top:12px;line-height:1.8;">
-                        Landscape · Engineering · Architecture · Planning
-                    </p>
-                    <div class="divider" style="border-color:rgba(255,255,255,0.08);"></div>
-                    <div class="row g-3 text-center">
-                        <?php $__currentLoopData = [['800+','Designers'],['60+','Countries'],['150+','Projects'],['5','Offices']]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $s): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <div class="col-6">
-                            <div style="font-size:28px;font-weight:900;color:var(--accent);"><?php echo e($s[0]); ?></div>
-                            <div style="font-size:11px;color:#555;text-transform:uppercase;letter-spacing:1px;"><?php echo e($s[1]); ?></div>
-                        </div>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="about-image-strip">
+    <?php for($i = 0; $i < 6; $i++): ?>
+    <div class="strip-item" style="background: hsl(<?php echo e($i * 30); ?>, 5%, <?php echo e(85 - $i * 3); ?>%);"></div>
+    <?php endfor; ?>
+</div>
 
-        <div class="divider"></div>
-
-        <div class="row g-4">
-            <?php $__currentLoopData = [['Architecture','Building typologies that challenge convention and celebrate human life.','bi-building'],['Landscape','Transforming the boundary between the built and the natural world.','bi-tree'],['Planning','Visionary urban strategies for the cities of tomorrow.','bi-map'],['Products','Objects that embody the same ambition as our largest projects.','bi-box']]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <div class="col-md-3">
-                <div style="padding:20px;background:#f8f8f8;border-radius:12px;height:100%;">
-                    <i class="bi <?php echo e($item[2]); ?>" style="font-size:28px;color:var(--black);"></i>
-                    <div style="font-size:16px;font-weight:700;margin:12px 0 8px;"><?php echo e($item[0]); ?></div>
-                    <p style="font-size:13px;color:#777;line-height:1.7;margin:0;"><?php echo e($item[1]); ?></p>
-                </div>
-            </div>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        </div>
+<div style="padding:48px 60px 60px;">
+    <div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#999;margin-bottom:24px;">Offices</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:32px 40px;">
+        <?php $__currentLoopData = ['Copenhagen · 2005','New York · 2010','London · 2016','Barcelona · 2019','Los Angeles · 2022','Shanghai','Zürich','Riyadh']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $office): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <div style="font-size:13px;color:#000;"><?php echo e($office); ?></div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
-</section>
+</div>
 
 <?php $__env->stopSection(); ?>
-
 <?php echo $__env->make('frontend.layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\Md Zainal Abedin\Desktop\big-architecture\resources\views/frontend/about.blade.php ENDPATH**/ ?>

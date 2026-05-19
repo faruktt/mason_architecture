@@ -7,12 +7,20 @@ use App\Models\Project;
 
 class ProjectController extends Controller
 {
-    public function index()
-    {
-        $projects = Project::published()->orderBy('sort_order')->paginate(20);
-        $categories = Project::published()->distinct()->pluck('category');
-        return view('frontend.projects.index', compact('projects', 'categories'));
+  public function index()
+{
+    $query = Project::published()->orderBy('sort_order');
+    
+    // যদি ক্যাটাগরি সিলেক্ট করা থাকে তবে ফিল্টার করো
+    if (request()->has('cat') && request('cat') != '') {
+        $query->where('category', request('cat'));
     }
+
+    $projects = $query->paginate(20);
+    $categories = Project::published()->distinct()->pluck('category');
+    
+    return view('frontend.projects.index', compact('projects', 'categories'));
+}
 
     public function show($slug)
     {

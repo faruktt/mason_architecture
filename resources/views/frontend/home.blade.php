@@ -42,11 +42,11 @@
                         </div>
                         <ul tabindex="0"
                             class="menu menu-sm dropdown-content text-white bg-base-100 rounded-box text-lg z-1 mt-3 w-52 p-2 shadow">
-                            <li><a href="masterplan.html">Master Plan</a></li>
-                            <li><a href="architecture.html">Architecture</a></li>
-                            <li><a href="landscape.html">Landscape</a></li>
-                            <li><a href="interior.html">Interior</a></li>
-                            <li><a href="construction.html">Construction</a></li>
+                            <li><a href="{{ route('projects.index', ['cat'=>'Architecture']) }}" class="{{ request()->routeIs('projects*') && request('cat')=='Architecture' ? 'active' : '' }}">Architecture</a></li>
+        <li><a href="{{ route('projects.index', ['cat'=>'Interiors']) }}" class="{{ request('cat')=='Interiors' ? 'active' : '' }}">Interiors</a></li>
+        <li><a href="{{ route('projects.index', ['cat'=>'Landscape']) }}" class="{{ request('cat')=='Landscape' ? 'active' : '' }}">Landscape</a></li>
+        <li><a href="{{ route('projects.index', ['cat'=>'Planning']) }}" class="{{ request('cat')=='Planning' ? 'active' : '' }}">Planning</a></li>
+        <li><a href="{{ route('projects.index', ['cat'=>'Products']) }}" class="{{ request('cat')=='Products' ? 'active' : '' }}">Products</a></li>
                         </ul>
                     </div>
                     <!-- This is logo section -->
@@ -66,20 +66,31 @@
                         </ul>
                     </div>
                 </div>
-                <div class="navbar hidden lg:flex">
-                    <ul class="menu menu-horizontal px-1 gap-10 text-lg text-white font-medium">
-                        <li><a href="{{ route('projects.index') }}">Master Plan</a></li>
-                        <li><a href="{{ route('projects.index') }}">Architecture</a></li>
-                        <li><a href="{{ route('projects.index') }}">Landscape</a></li>
-                        <li><a href="{{ route('projects.index') }}">Interior</a></li>
-                        <li><a href="{{ route('projects.index') }}">Construction</a></li>
-                    </ul>
-                </div>
+              <!-- Navbar (Desktop) -->
+            <div class="navbar hidden lg:flex">
+                <ul class="menu menu-horizontal px-1 gap-10 text-lg text-white font-medium">
+                    <!-- 'All' অপশন -->
+                    <li>
+                        <a href="{{ route('projects.index') }}" 
+                        class="{{ !request('cat') ? 'active underline' : '' }}">All</a>
+                    </li>
+                    
+                    <!-- ডায়নামিক ক্যাটাগরি লুপ -->
+                    @foreach($categories as $category)
+                    <li>
+                        <a href="{{ route('projects.index', ['cat' => $category]) }}" 
+                        class="{{ request('cat') == $category ? 'active underline' : '' }}">
+                        {{ $category }}
+                        </a>
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
             </div>
 
             <!-- Project Section -->
             <div class="carousel carousel-vertical gap-10 h-[700px] overflow-y-auto scroll-smooth snap-none">
-               @forelse($featuredProjects as $i => $project)
+              @forelse($projects as $i => $project)
                 <div class="carousel-item h-1/2">
                     <div class="mt-10 h-full">
                         <div class="hero">

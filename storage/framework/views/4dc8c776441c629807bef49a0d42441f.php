@@ -42,11 +42,11 @@
                         </div>
                         <ul tabindex="0"
                             class="menu menu-sm dropdown-content text-white bg-base-100 rounded-box text-lg z-1 mt-3 w-52 p-2 shadow">
-                            <li><a href="masterplan.html">Master Plan</a></li>
-                            <li><a href="architecture.html">Architecture</a></li>
-                            <li><a href="landscape.html">Landscape</a></li>
-                            <li><a href="interior.html">Interior</a></li>
-                            <li><a href="construction.html">Construction</a></li>
+                            <li><a href="<?php echo e(route('projects.index', ['cat'=>'Architecture'])); ?>" class="<?php echo e(request()->routeIs('projects*') && request('cat')=='Architecture' ? 'active' : ''); ?>">Architecture</a></li>
+        <li><a href="<?php echo e(route('projects.index', ['cat'=>'Interiors'])); ?>" class="<?php echo e(request('cat')=='Interiors' ? 'active' : ''); ?>">Interiors</a></li>
+        <li><a href="<?php echo e(route('projects.index', ['cat'=>'Landscape'])); ?>" class="<?php echo e(request('cat')=='Landscape' ? 'active' : ''); ?>">Landscape</a></li>
+        <li><a href="<?php echo e(route('projects.index', ['cat'=>'Planning'])); ?>" class="<?php echo e(request('cat')=='Planning' ? 'active' : ''); ?>">Planning</a></li>
+        <li><a href="<?php echo e(route('projects.index', ['cat'=>'Products'])); ?>" class="<?php echo e(request('cat')=='Products' ? 'active' : ''); ?>">Products</a></li>
                         </ul>
                     </div>
                     <!-- This is logo section -->
@@ -66,20 +66,32 @@
                         </ul>
                     </div>
                 </div>
-                <div class="navbar hidden lg:flex">
-                    <ul class="menu menu-horizontal px-1 gap-10 text-lg text-white font-medium">
-                        <li><a href="<?php echo e(route('projects.index')); ?>">Master Plan</a></li>
-                        <li><a href="<?php echo e(route('projects.index')); ?>">Architecture</a></li>
-                        <li><a href="<?php echo e(route('projects.index')); ?>">Landscape</a></li>
-                        <li><a href="<?php echo e(route('projects.index')); ?>">Interior</a></li>
-                        <li><a href="<?php echo e(route('projects.index')); ?>">Construction</a></li>
-                    </ul>
-                </div>
+              <!-- Navbar (Desktop) -->
+            <div class="navbar hidden lg:flex">
+                <ul class="menu menu-horizontal px-1 gap-10 text-lg text-white font-medium">
+                    <!-- 'All' অপশন -->
+                    <li>
+                        <a href="<?php echo e(route('projects.index')); ?>" 
+                        class="<?php echo e(!request('cat') ? 'active underline' : ''); ?>">All</a>
+                    </li>
+                    
+                    <!-- ডায়নামিক ক্যাটাগরি লুপ -->
+                    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <li>
+                        <a href="<?php echo e(route('projects.index', ['cat' => $category])); ?>" 
+                        class="<?php echo e(request('cat') == $category ? 'active underline' : ''); ?>">
+                        <?php echo e($category); ?>
+
+                        </a>
+                    </li>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </ul>
+            </div>
             </div>
 
             <!-- Project Section -->
             <div class="carousel carousel-vertical gap-10 h-[700px] overflow-y-auto scroll-smooth snap-none">
-               <?php $__empty_1 = true; $__currentLoopData = $featuredProjects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $project): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+              <?php $__empty_1 = true; $__currentLoopData = $projects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $project): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                 <div class="carousel-item h-1/2">
                     <div class="mt-10 h-full">
                         <div class="hero">

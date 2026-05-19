@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('title', 'People — BIG'); ?>
 
 <?php $__env->startSection('content'); ?>
