@@ -42,7 +42,7 @@ A full-stack Laravel 11 website inspired by **Mason** , featuring a premium Boot
 ### 1. Clone / Extract the project
 
 ```bash
-cd big-architecture
+cd mason-architecture
 ```
 
 ### 2. Install PHP dependencies
@@ -120,7 +120,7 @@ Visit: **http://localhost:8000**
 ## 📁 Project Structure
 
 ```
-big-architecture/
+mason-architecture/
 ├── app/
 │   ├── Http/Controllers/
 │   │   ├── Admin/          # Dashboard, Projects, Team, Careers, News, Settings
