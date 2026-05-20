@@ -91,6 +91,7 @@
             <!-- Project Section -->
             <div class="carousel carousel-vertical gap-10 h-[700px] overflow-y-auto scroll-smooth snap-none">
               @forelse($projects as $i => $project)
+              <a href="{{ route('projects.show', $project->slug) }}" class="project-entry">
                 <div class="carousel-item h-1/2">
                     <div class="mt-10 h-full">
                         <div class="hero">
@@ -107,6 +108,7 @@
                         </div>
                     </div>
                 </div>
+                 </a>
               @empty
             <div class="col-12 text-center py-5 text-muted">
                 <p>No featured projects yet. <a href="{{ route('admin.projects.create') }}">Add some from admin</a>.</p>
