@@ -10,10 +10,24 @@
     .profile-img { width: 15%; height: auto; object-fit: cover; }
     .name-text { font-weight: bold; font-size: 1.2rem; }
     .role-text { color: #666; font-size: 0.9rem; }
+    .page-big-heading {
+            padding: 60px 60px 48px;
+        }
+
+        .page-big-heading h1 {
+            font-size: clamp(64px, 10vw, 120px);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 0.95;
+            color: #000;
+            text-transform: uppercase;
+        }
 </style>
 
-<div class="container py-5">
+<div class="container py-5 p-10">
+    <div class="page-big-heading">
     <h1>PEOPLE</h1>
+</div>
     
     <div class="row mt-5">
         <!-- বাম পাশের পার্টনার লিস্ট -->

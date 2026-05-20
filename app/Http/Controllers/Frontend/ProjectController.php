@@ -11,7 +11,7 @@ class ProjectController extends Controller
 {
     $query = Project::published()->orderBy('sort_order');
     
-    // যদি ক্যাটাগরি সিলেক্ট করা থাকে তবে ফিল্টার করো
+    
     if (request()->has('cat') && request('cat') != '') {
         $query->where('category', request('cat'));
     }

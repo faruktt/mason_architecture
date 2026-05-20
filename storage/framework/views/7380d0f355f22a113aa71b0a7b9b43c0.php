@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('page-title', 'News Articles'); ?>
 
 <?php $__env->startSection('content'); ?>
