@@ -1,17 +1,37 @@
+# Dependencies
 /node_modules
-/public/hot
-/public/storage
-/storage/*.key
 /vendor
+
+# Environment files
 .env
 .env.backup
 .env.production
-.phpactor.json
+
+# Laravel storage & cache
+/storage
+/bootstrap/cache
+/storage/*.key
+
+# Logs
+npm-debug.log
+yarn-error.log
+*.log
+
+# Laravel specific
+/public/storage
+/public/hot
+
+# IDE / Editor
+.idea
+.vscode
+.fleet
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Auth / misc
 auth.json
 Homestead.json
 Homestead.yaml
-npm-debug.log
-yarn-error.log
-/.fleet
-/.idea
-/.vscode
+.phpactor.json
