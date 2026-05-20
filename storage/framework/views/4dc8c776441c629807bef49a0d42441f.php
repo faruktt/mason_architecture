@@ -14,6 +14,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+    .carousel-item {
+        transition: all 0.4s ease-in-out;
+        transform: scale(0.9); /* ডিফল্ট ছোট সাইজ */
+    }
+
+    /* যখন স্ক্রল থামবে বা কারেন্ট আইটেম হবে */
+    .carousel-item.active {
+        transform: scale(1); /* অরিজিনাল সাইজ */
+    }
+
+    /* স্ক্রল এরিয়ার স্টাইল */
+    .carousel {
+        scroll-snap-type: y mandatory;
+    }
+    .carousel-item {
+        scroll-snap-align: center;
+    }
+</style>
 </head>
 
 <body>
@@ -92,7 +111,8 @@
             <!-- Project Section -->
             <div class="carousel carousel-vertical gap-10 h-[700px] overflow-y-auto scroll-smooth snap-none">
               <?php $__empty_1 = true; $__currentLoopData = $projects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $project): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                <div class="carousel-item h-1/2">
+              <a href="<?php echo e(route('projects.show', $project->slug)); ?>" class="project-entry">
+                  <div class="carousel-item h-1/2 <?php echo e($i === 0 ? 'active' : ''); ?>">
                     <div class="mt-10 h-full">
                         <div class="hero">
                             <div class="flex flex-col gap-6 lg:flex-row-reverse">
@@ -108,6 +128,7 @@
                         </div>
                     </div>
                 </div>
+                </a>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
             <div class="col-12 text-center py-5 text-muted">
                 <p>No featured projects yet. <a href="<?php echo e(route('admin.projects.create')); ?>">Add some from admin</a>.</p>
@@ -143,6 +164,25 @@
             </aside>
         </footer>
     </section>
+    <script>
+    const carousel = document.querySelector('.carousel');
+    const items = document.querySelectorAll('.carousel-item');
+
+    carousel.addEventListener('scroll', () => {
+        let scrollPos = carousel.scrollTop;
+        
+        items.forEach(item => {
+            let itemTop = item.offsetTop - carousel.offsetTop;
+            
+            // যদি আইটেমটি সেন্টারে থাকে তবে active ক্লাস যোগ হবে
+            if (scrollPos >= itemTop - 100 && scrollPos <= itemTop + 100) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    });
+</script>
 </body>
 
 </html><?php /**PATH C:\Users\Md Zainal Abedin\Desktop\big-architecture\resources\views/frontend/home.blade.php ENDPATH**/ ?>
