@@ -28,16 +28,12 @@
     <div class="page-big-heading">
     <h1>PEOPLE</h1>
 </div>
-    
     <div class="row mt-5">
-        <!-- বাম পাশের পার্টনার লিস্ট -->
         <div class="col-md-6" x-data="{ selected: null }">
             @foreach($partners as $index => $person)
                 <div class="partner-item" @click="selected = (selected === {{ $index }} ? null : {{ $index }})">
                     <span>+</span> {{ $person->name }}
                 </div>
-
-                <!-- ক্লিক করলে এই অংশটি দেখাবে (মোবাইল বা ডেস্কটপ যেখানেই হোক) -->
                 <div class="d-md-none" x-show="selected === {{ $index }}">
                     <div class="p-3">
                         <img src="{{ asset('storage/'.$person->photo) }}" class="profile-img mb-3">
@@ -46,8 +42,6 @@
                 </div>
             @endforeach
         </div>
-
-        <!-- ডান পাশের ডিটেইলস প্যানেল (শুধুমাত্র ডেস্কটপের জন্য) -->
         <div class="col-md-6 d-none d-md-block">
             <div x-data="{ selected: null }" @change-person.window="selected = $event.detail">
                 @foreach($partners as $index => $person)
