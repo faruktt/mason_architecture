@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('page-title', 'Edit Article'); ?>
 
 <?php $__env->startSection('content'); ?>

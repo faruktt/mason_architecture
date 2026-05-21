@@ -8,19 +8,18 @@ use App\Models\Project;
 class ProjectController extends Controller
 {
   public function index()
-{
-    $query = Project::published()->orderBy('sort_order');
-    
-    
-    if (request()->has('cat') && request('cat') != '') {
-        $query->where('category', request('cat'));
-    }
+    {
+        $query = Project::published()->orderBy('sort_order');
+        
+        if (request()->has('cat') && request('cat') != '') {
+            $query->where('category', request('cat'));
+        }
 
-    $projects = $query->paginate(20);
-    $categories = Project::published()->distinct()->pluck('category');
-    
-    return view('frontend.projects.index', compact('projects', 'categories'));
-}
+        $projects = $query->paginate(20);
+        $categories = Project::published()->distinct()->pluck('category');
+        
+        return view('frontend.projects.index', compact('projects', 'categories'));
+    }
 
     public function show($slug)
     {
