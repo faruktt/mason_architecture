@@ -117,8 +117,6 @@
             </div>
         </div>
     </main>
-
-    
     <!-- Footer Section -->
     <section>
         <footer class="footer footer-horizontal footer-center bg-[#354E4A] text-base-content rounded p-10">
