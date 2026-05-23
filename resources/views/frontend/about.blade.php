@@ -51,7 +51,7 @@
             object-fit: cover;
             display: block;
         }
-         /* ===== BIG PAGE HEADINGS (About, Sustainability, People, Careers) ===== */
+         
         .page-big-heading {
             padding: 60px 60px 48px;
         }
