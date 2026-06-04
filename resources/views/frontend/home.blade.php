@@ -43,10 +43,10 @@
                         <ul tabindex="0"
                             class="menu menu-sm dropdown-content text-white bg-base-100 rounded-box text-lg z-1 mt-3 w-52 p-2 shadow">
                             <li><a href="{{ route('projects.index', ['cat'=>'Architecture']) }}" class="{{ request()->routeIs('projects*') && request('cat')=='Architecture' ? 'active' : '' }}">Architecture</a></li>
-                            <li><a href="{{ route('projects.index', ['cat'=>'Interiors']) }}" class="{{ request('cat')=='Interiors' ? 'active' : '' }}">Interiors</a></li>
-                            <li><a href="{{ route('projects.index', ['cat'=>'Landscape']) }}" class="{{ request('cat')=='Landscape' ? 'active' : '' }}">Landscape</a></li>
-                            <li><a href="{{ route('projects.index', ['cat'=>'Planning']) }}" class="{{ request('cat')=='Planning' ? 'active' : '' }}">Planning</a></li>
-                            <li><a href="{{ route('projects.index', ['cat'=>'Products']) }}" class="{{ request('cat')=='Products' ? 'active' : '' }}">Products</a></li>
+        <li><a href="{{ route('projects.index', ['cat'=>'Interiors']) }}" class="{{ request('cat')=='Interiors' ? 'active' : '' }}">Interiors</a></li>
+        <li><a href="{{ route('projects.index', ['cat'=>'Landscape']) }}" class="{{ request('cat')=='Landscape' ? 'active' : '' }}">Landscape</a></li>
+        <li><a href="{{ route('projects.index', ['cat'=>'Planning']) }}" class="{{ request('cat')=='Planning' ? 'active' : '' }}">Planning</a></li>
+        <li><a href="{{ route('projects.index', ['cat'=>'Products']) }}" class="{{ request('cat')=='Products' ? 'active' : '' }}">Products</a></li>
                         </ul>
                     </div>
                     <!-- This is logo section -->
