@@ -30,7 +30,9 @@
             margin-bottom: 12px;
             max-width: 700px;
         }</style>
-
+<div class="page-big-heading">
+    <h1>Sustainability</h1>
+</div>
 
 {{-- Featured section: The Plus --}}
 <div class="sust-section">
